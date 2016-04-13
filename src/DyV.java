@@ -36,7 +36,7 @@ public class DyV {
         BufferedReader in;
 
         try {
-            /*LineNumberReader  lnr = new LineNumberReader(new FileReader(archivo));
+            LineNumberReader  lnr = new LineNumberReader(new FileReader(archivo));
             lnr.skip(Long.MAX_VALUE);
             divisiones = (int) (Math.log(lnr.getLineNumber())/Math.log(4));
             int size=sucesiones(divisiones);
@@ -48,9 +48,9 @@ public class DyV {
             }
             else
                 System.out.println("Error de archivo");
-            lnr.close();*/
-            for(int i=0;i<1365;i++)
-                lista.put(i,(int) (Math.random()*50));
+            lnr.close();
+            /*for(int i=0;i<1365;i++)
+                lista.put(i,(int) (Math.random()*50));*/
         }
         catch (Exception e){
             System.out.println(e);
