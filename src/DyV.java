@@ -22,7 +22,7 @@ public class DyV {
         comprobacion();
         for(int i=0;i<lista.size();i++)
         System.out.println(i+": "+lista.get(i));
-        System.out.println(DyV(0));
+        System.out.println(DaC(0));
     }
 
     /*
@@ -30,7 +30,7 @@ public class DyV {
     * Calcularía las lineas del archivo antes de hacer nada, si este corresponde con un número
     * válido (potencia de 2), si este es correcto, procede a leer el archivo y cargarlo en nuestro Hash Map.
     */
-    public static void carga(String archivo){
+    private static void carga(String archivo){
 
         String cadena;
         BufferedReader in;
@@ -53,15 +53,15 @@ public class DyV {
                 lista.put(i,(int) (Math.random()*50));*/
         }
         catch (Exception e){
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
     /*
     * Este método sirve para analizar previamente los datos por si hay algún tipo de problema a la hora
     * de la suma de los absentismos.*/
-    public static void comprobacion(){
+    private static void comprobacion(){
         no_manzanas=sucesiones(divisiones-1);
-        int suma=0;
+        int suma;
         for (int i = no_manzanas-1; i>-1; i--) {
             suma= lista.get((4*i)+1)+lista.get((4*i)+2)+lista.get((4*i)+3)+lista.get((4*i)+4);
             if(lista.get(i)!=suma){
@@ -71,7 +71,7 @@ public class DyV {
         }
     }
 
-    public static int sucesiones(int num){
+    private static int sucesiones(int num){
         int aux=0;
         for(int i=0;i<num+1;i++) {
             aux+= Math.pow(4, i);
@@ -79,13 +79,13 @@ public class DyV {
         return aux;
     }
 
-    public static String DyV(int num){
+    private static String DaC(int num){
         String aux="";
         if(num<no_manzanas){
-            aux+=DyV(4*num+1);
-            aux+=DyV(4*num+2);
-            aux+=DyV(4*num+3);
-            aux+=DyV(4*num+4);
+            aux+=DaC(4*num+1);
+            aux+=DaC(4*num+2);
+            aux+=DaC(4*num+3);
+            aux+=DaC(4*num+4);
         }
         else if(lista.get(num)>15){
             return base(num)+"\n";
@@ -93,7 +93,7 @@ public class DyV {
         return aux;
     }
 
-    public static String base(int num){
+    private static String base(int num){
         int avenida=0;
         int calle=0;
         int aux=num-no_manzanas;
